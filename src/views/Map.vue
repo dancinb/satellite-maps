@@ -26,9 +26,9 @@
           :prefix="attributionPrefix"
         ></l-control-attribution>
         <l-control-zoom position="bottomright"></l-control-zoom>
-        <l-marker v-if="satInfo !== {}" :lat-lng="center">
+        <l-marker :lat-lng="center">
           <l-icon :icon-url="iconUrl" :icon-size="[40, 40]"> </l-icon>
-          <l-popup v-if="satInfo !== {}">
+          <l-popup>
             中国空间站天和核心舱
             <hr />
             高度：{{ height.toFixed(2) }} km<br />
@@ -36,9 +36,8 @@
             位置：{{ lat.toFixed(2) }}&deg; N {{ lng.toFixed(2) }}&deg; E
           </l-popup>
         </l-marker>
-        <l-polyline v-if="tracks" :lat-lngs="tracks"></l-polyline>
+        <l-polyline :lat-lngs="tracks"></l-polyline>
         <l-circle
-          v-if="satInfo"
           :lat-lng="center"
           :radius="1000e3"
           :color="'#c22'"
@@ -46,7 +45,6 @@
           :weight="1"
         />
         <l-circle
-          v-if="satInfo"
           :lat-lng="center"
           :radius="600e3"
           :color="'#c22'"
@@ -54,7 +52,6 @@
           :weight="1"
         />
         <l-circle
-          v-if="satInfo"
           :lat-lng="center"
           :radius="200e3"
           :color="'#c22'"

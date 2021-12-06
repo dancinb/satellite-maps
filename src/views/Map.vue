@@ -118,7 +118,7 @@ export default defineComponent({
       satName: '',
       satInfo: {} as SatelliteInfoOutput,
       satMarker: null,
-      TLEUrl: 'https://www.positiveoutlook.cn/satcat/tle/48274',
+      TLEUrl: 'https://celestrak.sylphix.workers.dev/satcat/tle.php?INTDES=2021-035',
       OSMUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       iconUrl: satelliteSVG,
 
@@ -137,7 +137,7 @@ export default defineComponent({
         }
       ],
       attributionPrefix:
-        '<a href="./about">关于此应用</a> | <a href="https://www.positiveoutlook.cn/">回到主页 🏠</a> | 基础地图来自 OpenStreetMap'
+        '<a href="./about">关于此应用</a> | <a href="https://sylphix.com/">回到主页 🏠</a> | 基础地图来自 OpenStreetMap'
     }
   },
   computed: {
@@ -172,7 +172,11 @@ export default defineComponent({
   mounted() {
     // 获取 TLE
     axios.get(this.TLEUrl).then((resp) => {
-      this.tle = parseTLE(resp.data.tle)
+      // 测试数据
+    this.tle = parseTLE(`TIANHE                  
+1 48274U 21035A   21339.41743177  .00014182  00000-0  16208-3 0  9994
+2 48274  41.4704 319.2304 0003522 164.0563 331.5015 15.61885925 34472`)
+      // this.tle = parseTLE(resp.data)
       this.satName = getSatelliteName(this.tle)
       this.satInfo = getSatelliteInfo(this.tle, Date.now())
     })

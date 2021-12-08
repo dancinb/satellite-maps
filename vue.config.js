@@ -1,15 +1,15 @@
 module.exports = {
-  publicPath: '/maps/',
+  publicPath: '/',
   productionSourceMap: false,
 
   pwa: {
-    name: '中国天宫空间站实时位置 🛰'
+    name: '天宫空间站运行轨迹 🛰'
   },
 
   pages: {
     index: {
       entry: 'src/main.ts',
-      title: '中国天宫空间站实时位置 🛰'
+      title: '天宫空间站运行轨迹 🛰'
     }
   },
 }

@@ -118,7 +118,7 @@ export default defineComponent({
       satName: '',
       satInfo: {} as SatelliteInfoOutput,
       satMarker: null,
-      TLEUrl: 'https://satellite-maps.sylphix.com/celestrak/satcat/tle.php?INTDES=2021-035',
+      TLEUrl: 'https://celestrak.com/NORAD/elements/gp.php?INTDES=2021-035&FORMAT=TLE',
       OSMUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       iconUrl: satelliteSVG,
 
@@ -137,7 +137,7 @@ export default defineComponent({
         }
       ],
       attributionPrefix:
-        '<a href="https://github.com/sylphix/satellite-maps" target="_blank">GitHub</a> | <a href="https://sylphix.com/">回到主页 🏠</a> | 基础地图来自 OpenStreetMap'
+        '<a href="https://github.com/openbunny/satellite-maps" target="_blank">GitHub</a> | 基础地图来自 OpenStreetMap'
     }
   },
   computed: {
